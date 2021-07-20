@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "James Raden <james.raden@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node server"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "react": "^17.0.2",
