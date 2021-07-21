@@ -17,7 +17,7 @@ fetch("/api/data")
 
 function handleVote(answerId, increment) {
   fetch(`/api/vote/${answerId}?increment=${increment}`, {
-    method: "POST",
+    method: "PUT",
   }).then(() => {
     state.answers = handleModifyAnswerVotes(state.answers, answerId, increment);
     render();

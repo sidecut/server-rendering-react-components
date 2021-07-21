@@ -64,7 +64,7 @@ const app = express();
 
 app.use(express.static("dist"));
 
-app.post("/api/vote/:answerId", (req, res) => {
+app.put("/api/vote/:answerId", (req, res) => {
   const { query, params } = req;
   const { answerId } = params;
   const { increment } = query;
