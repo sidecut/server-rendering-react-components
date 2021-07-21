@@ -5,7 +5,8 @@
   "author": "James Raden <james.raden@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node server"
+    "start": "babel-node server",
+    "build": "webpack"
   },
   "dependencies": {
     "express": "^4.17.1",
