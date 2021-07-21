@@ -63,6 +63,10 @@ const app = express();
 
 app.use(express.static("dist"));
 
+app.get("/api/data", async (req, res) => {
+  res.send(data);
+});
+
 app.get("/", (req, res) => {
   // res.send("<h1>React is excellent!</h1>");
   const index = readFileSync("public/index.html", "utf-8");
