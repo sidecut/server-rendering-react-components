@@ -16,8 +16,10 @@ fetch("/api/data")
   });
 
 function handleVote(answerId, increment) {
-  state.answers = handleModifyAnswerVotes(state.answers, answerId, increment);
-  render();
+  fetch(`/api/vote/${answerId}?increment=${increment}`).then(() => {
+    state.answers = handleModifyAnswerVotes(state.answers, answerId, increment);
+    render();
+  });
 }
 
 function render() {
