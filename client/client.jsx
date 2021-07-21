@@ -2,6 +2,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import { handleModifyAnswerVotes } from "../shared/utility";
 import { App } from "./App";
 
 let state;
@@ -14,21 +15,14 @@ fetch("/api/data")
     render();
   });
 
-function handleModifyAnswerVotes(answerId, increment) {
-  state.answers = state.answers.map((answer) => {
-    if (answer.answerId === answerId) {
-      return { ...answer, upvotes: answer.upvotes + increment };
-    } else {
-      return answer;
-    }
-  });
-
+function handleVote(answerId, increment) {
+  state.answers = handleModifyAnswerVotes(state.answers, answerId, increment);
   render();
 }
 
 function render() {
   ReactDOM.hydrate(
-    <App {...state} handleModifyAnswerVotes={handleModifyAnswerVotes} />,
+    <App {...state} handleModifyAnswerVotes={handleVote} />,
     document.querySelector("#Container")
   );
 }
