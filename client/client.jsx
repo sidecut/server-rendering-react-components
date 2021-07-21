@@ -14,8 +14,23 @@ fetch("/api/data")
     render();
   });
 
+function handleModifyAnswerVotes(answerId, increment) {
+  state.answers = state.answers.map((answer) => {
+    if (answer.answerId === answerId) {
+      return { ...answer, upvotes: answer.upvotes + increment };
+    } else {
+      return answer;
+    }
+  });
+
+  render();
+}
+
 function render() {
-  // ReactDOM.hydrate(<App {...state} />, document.querySelector("#Container"));
+  ReactDOM.hydrate(
+    <App {...state} handleModifyAnswerVotes={handleModifyAnswerVotes} />,
+    document.querySelector("#Container")
+  );
 }
 
 // render();
