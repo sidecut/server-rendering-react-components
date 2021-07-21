@@ -4,4 +4,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 
-ReactDOM.render(<App />, document.querySelector("#Container"));
+function render() {
+  ReactDOM.hydrate(<App />, document.querySelector("#Container"));
+}
+
+render();
